@@ -1,0 +1,85 @@
+T.K. Bui | CS 185C | Worksheet 7, due 10/15/2021
+======================================================================================================================
+Script started on 2021-10-16 05:46:57+00:00 [TERM="xterm" TTY="/dev/pts/0" COLUMNS="189" LINES="52"]
+
+----------------------------------------------------------------------------------------------------------------------
+1) Select your favorite product. You can work with the one product file you used in the last worksheet #6.
+
+bui@f6linuxA7:~$ egrep $'\t''0002171856'$'\t' amazon_reviews_us_Books_v1_02.tsv | cut -f 14 > 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ head 0002171856.reviewbody.txt
+I teach hunter education for the New Mexico Department of Game and Fish and base many parts of my lecture dealing with survival on parts of this book.  I find it to the point, with great illustrations and directions.  I recommend it to anyone with an interest in the outdoors.
+The first time I read this book, was as a teen.  I &quot;borrowed&quot; the copy belonging to my brother, and have never been without a copy since then.<br />The information contained within is aimed at surviving in the most extreme conditions.  Granted, not many of us will be stranded in the North Pole - but if we were, we'd know not to eat a polar bear's liver, because the amount of vitamin A contained therein is toxic!  <BR>More usable information includes:<br />- Beautiful, accurate pictures of edible and poisonous plants<BR>- How-to advice on setting up temporary camps<BR>- Basic first aid and medical care<BR>- How to survive a nuclear attack, war conditions, fire/ice/extreme weather conditions<BR>- A virtually complete instruction on how to set up different traps to catch your food,<BR>And other amazing pieces of information simply too numerous to list.<br />All in all, there are probably more professional, intensive survival guides - but this is by far one of the more approachable, with common sense advice that we can use even in a non-survival situation.
+This book is one of four indispensable basic, general texts on the subject of survival that anyone interested in the subject should have for reference.  The others are Janowsky and Janowsky, the US Army FM 21-76, US Air Force Reg 64-4. My version is the 1986 Survive Safely Anywhere: The SAS Survival Manual.  The most important characteristic of a really useful book on this subject is not just the kind and quantity of information available, but the real usefulness and authenticity of the information.  Wiseman's book has that, and it's greatest asset beyond that sine qua non is the generally excellent quality of illustration.  It covers much of the same ground as other texts, expands nicely on some areas, and has some discussion that is generally not discussed in other books.  It has quite a bit in the areas of camp craft/improvised equipment, plants, first aid,  and natural disasters.  The bit on vehicle operation is not the same old information, and benefits from military experience such as that of SAS Mobility Troop. This book, with the other three, is a superb general reference and a starting point for further investigations for those interested in the subject.
+It is an excellent book with lots of advices and with colourful pictures in dangerous plants and animals. It is so comprehensive, gives info surviving techniques from car accident, camping to disasters.
+This is the best survival manual I have ever read, and I collect survival manuals. This book is the bible, its scope,detail, and practicality is unmatched. I've had this book for years and I still find myself going back to it for techniques to practice. If you are only going to read one survival manual this should be it.
+This book covers everything you would need know to survive in the woods or on a deserted island.
+Amazing book! This book is quality, you will not get a better survival book than this! Survival techniques given by the best fighting force in the world - The English SAS!
+Yes its true this is the finest survival book i have ever read. It was worth ever cent I paid for it and more. If u buy just one survival book make it this one. It covers a variety of situations, and it does it in a forward, easy to read, and no none sense way. I read this book just for the joy of it. A fine fine book.Thanks much
+Yes its true this is the finest survival book i have ever read. It was worth ever cent I paid for it and more. If u buy just one survival book make it this one. It covers a variety of situations, and it does it in a forward, easy to read, and no none sense way. I read this book just for the joy of it. A fine fine book.Thanks much
+All together a pretty good book.  The book gives you a lot of useful information and is well organized.  Discusses knot tying, trapping, ways to obtain drinking water, building shelters and  starting fires. Covers  various climates and terrain.  A good basic guide but I'm still searching  for something a little more detailed.
+
+EXPLANATION: I used the product with the id 0002171856 like from Worksheet 6. I used egrep to find all reviews
+with that product id and cut to get only the review body column.
+
+----------------------------------------------------------------------------------------------------------------------
+2) Examine the review_body column in the amazon reviews file for a product of your choice.
+   Remove all commas, dots, semicolons, and these stopwords:  and or if in it.
+
+bui@f6linuxA7:~$ sed -i 's/[.;,]/ /g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/ and / /g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/ or / /g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/ if / /g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ head 0002171856.reviewbody.txt
+I teach hunter education for the New Mexico Department of Game Fish base many parts of my lecture dealing with survival on parts of this book   I find it to the point  with great illustrations directions   I recommend it to anyone with an interest in the outdoors 
+The first time I read this book  was as a teen   I &quot borrowed&quot  the copy belonging to my brother  have never been without a copy since then <br />The information contained within is aimed at surviving in the most extreme conditions   Granted  not many of us will be stranded in the North Pole - but we were  we'd know not to eat a polar bear's liver  because the amount of vitamin A contained therein is toxic!  <BR>More usable information includes:<br />- Beautiful  accurate pictures of edible poisonous plants<BR>- How-to advice on setting up temporary camps<BR>- Basic first aid medical care<BR>- How to survive a nuclear attack  war conditions  fire/ice/extreme weather conditions<BR>- A virtually complete instruction on how to set up different traps to catch your food <BR>And other amazing pieces of information simply too numerous to list <br />All in all  there are probably more professional  intensive survival guides - but this is by far one of the more approachable  with common sense advice that we can use even in a non-survival situation 
+This book is one of four indispensable basic  general texts on the subject of survival that anyone interested in the subject should have for reference   The others are Janowsky Janowsky  the US Army FM 21-76  US Air Force Reg 64-4  My version is the 1986 Survive Safely Anywhere: The SAS Survival Manual   The most important characteristic of a really useful book on this subject is not just the kind quantity of information available  but the real usefulness authenticity of the information   Wiseman's book has that  it's greatest asset beyond that sine qua non is the generally excellent quality of illustration   It covers much of the same ground as other texts  expands nicely on some areas  has some discussion that is generally not discussed in other books   It has quite a bit in the areas of camp craft/improvised equipment  plants  first aid   natural disasters   The bit on vehicle operation is not the same old information  benefits from military experience such as that of SAS Mobility Troop  This book  with the other three  is a superb general reference a starting point for further investigations for those interested in the subject 
+It is an excellent book with lots of advices with colourful pictures in dangerous plants animals  It is so comprehensive  gives info surviving techniques from car accident  camping to disasters 
+This is the best survival manual I have ever read  I collect survival manuals  This book is the bible  its scope detail  practicality is unmatched  I've had this book for years I still find myself going back to it for techniques to practice  If you are only going to read one survival manual this should be it 
+This book covers everything you would need know to survive in the woods on a deserted island 
+Amazing book! This book is quality  you will not get a better survival book than this! Survival techniques given by the best fighting force in the world - The English SAS!
+Yes its true this is the finest survival book i have ever read  It was worth ever cent I paid for it more  If u buy just one survival book make it this one  It covers a variety of situations  it does it in a forward  easy to read  no none sense way  I read this book just for the joy of it  A fine fine book Thanks much
+Yes its true this is the finest survival book i have ever read  It was worth ever cent I paid for it more  If u buy just one survival book make it this one  It covers a variety of situations  it does it in a forward  easy to read  no none sense way  I read this book just for the joy of it  A fine fine book Thanks much
+All together a pretty good book   The book gives you a lot of useful information is well organized   Discusses knot tying  trapping  ways to obtain drinking water  building shelters  starting fires  Covers  various climates terrain   A good basic guide but I'm still searching  for something a little more detailed 
+
+EXPLANATION: I used sed to remove all instances of commas, dots, and semicolons, as well as the words "and", "or",
+and "if". I get the head of the review body to check if the commands worked. I replaced instances with a space
+in case removing the punctuation or words led to combined words.
+
+----------------------------------------------------------------------------------------------------------------------
+3) Remove all html tags, such as <br />
+
+bui@f6linuxA7:~$ sed -i 's/<[a-zA-Z]* \/>//g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/<[a-zA-Z]*\/>//g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/<[a-zA-Z]* >//g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/<[a-zA-Z]*>//g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ sed -i 's/<[a-zA-Z]*_\/>//g' 0002171856.reviewbody.txt
+
+bui@f6linuxA7:~$ head 0002171856.reviewbody.txt
+I teach hunter education for the New Mexico Department of Game Fish base many parts of my lecture dealing with survival on parts of this book   I find it to the point  with great illustrations directions   I recommend it to anyone with an interest in the outdoors 
+The first time I read this book  was as a teen   I &quot borrowed&quot  the copy belonging to my brother  have never been without a copy since then The information contained within is aimed at surviving in the most extreme conditions   Granted  not many of us will be stranded in the North Pole - but we were  we'd know not to eat a polar bear's liver  because the amount of vitamin A contained therein is toxic!  More usable information includes:- Beautiful  accurate pictures of edible poisonous plants- How-to advice on setting up temporary camps- Basic first aid medical care- How to survive a nuclear attack  war conditions  fire/ice/extreme weather conditions- A virtually complete instruction on how to set up different traps to catch your food And other amazing pieces of information simply too numerous to list All in all  there are probably more professional  intensive survival guides - but this is by far one of the more approachable  with common sense advice that we can use even in a non-survival situation 
+This book is one of four indispensable basic  general texts on the subject of survival that anyone interested in the subject should have for reference   The others are Janowsky Janowsky  the US Army FM 21-76  US Air Force Reg 64-4  My version is the 1986 Survive Safely Anywhere: The SAS Survival Manual   The most important characteristic of a really useful book on this subject is not just the kind quantity of information available  but the real usefulness authenticity of the information   Wiseman's book has that  it's greatest asset beyond that sine qua non is the generally excellent quality of illustration   It covers much of the same ground as other texts  expands nicely on some areas  has some discussion that is generally not discussed in other books   It has quite a bit in the areas of camp craft/improvised equipment  plants  first aid   natural disasters   The bit on vehicle operation is not the same old information  benefits from military experience such as that of SAS Mobility Troop  This book  with the other three  is a superb general reference a starting point for further investigations for those interested in the subject 
+It is an excellent book with lots of advices with colourful pictures in dangerous plants animals  It is so comprehensive  gives info surviving techniques from car accident  camping to disasters 
+This is the best survival manual I have ever read  I collect survival manuals  This book is the bible  its scope detail  practicality is unmatched  I've had this book for years I still find myself going back to it for techniques to practice  If you are only going to read one survival manual this should be it 
+This book covers everything you would need know to survive in the woods on a deserted island 
+Amazing book! This book is quality  you will not get a better survival book than this! Survival techniques given by the best fighting force in the world - The English SAS!
+Yes its true this is the finest survival book i have ever read  It was worth ever cent I paid for it more  If u buy just one survival book make it this one  It covers a variety of situations  it does it in a forward  easy to read  no none sense way  I read this book just for the joy of it  A fine fine book Thanks much
+Yes its true this is the finest survival book i have ever read  It was worth ever cent I paid for it more  If u buy just one survival book make it this one  It covers a variety of situations  it does it in a forward  easy to read  no none sense way  I read this book just for the joy of it  A fine fine book Thanks much
+All together a pretty good book   The book gives you a lot of useful information is well organized   Discusses knot tying  trapping  ways to obtain drinking water  building shelters  starting fires  Covers  various climates terrain   A good basic guide but I'm still searching  for something a little more detailed 
+
+EXPLANATION: Like #2, I use sed to remove all instances of possible HTML tags and checked the commands
+with the head of the review body.
+
+======================================================================================================================
+bui@f6linuxA7:~$ history > cmds.log
+bui@f6linuxA7:~$ exit
+
+Script done on 2021-10-16 05:48:38+00:00 [COMMAND_EXIT_CODE="0"]

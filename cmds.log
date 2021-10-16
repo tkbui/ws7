@@ -1,0 +1,14 @@
+    1  egrep $'\t''0002171856'$'\t' amazon_reviews_us_Books_v1_02.tsv | cut -f 14 > 0002171856.reviewbody.txt
+    2  head 0002171856.reviewbody.txt
+    3  sed -i 's/[.;,]/ /g' 0002171856.reviewbody.txt
+    4  sed -i 's/ and / /g' 0002171856.reviewbody.txt
+    5  sed -i 's/ or / /g' 0002171856.reviewbody.txt
+    6  sed -i 's/ if / /g' 0002171856.reviewbody.txt
+    7  head 0002171856.reviewbody.txt
+    8  sed -i 's/<[a-zA-Z]* \/>//g' 0002171856.reviewbody.txt
+    9  sed -i 's/<[a-zA-Z]*\/>//g' 0002171856.reviewbody.txt
+   10  sed -i 's/<[a-zA-Z]* >//g' 0002171856.reviewbody.txt
+   11  sed -i 's/<[a-zA-Z]*>//g' 0002171856.reviewbody.txt
+   12  sed -i 's/<[a-zA-Z]*_\/>//g' 0002171856.reviewbody.txt
+   13  head 0002171856.reviewbody.txt
+   14  history > cmds.log
